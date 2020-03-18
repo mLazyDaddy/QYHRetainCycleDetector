@@ -11,7 +11,8 @@ ObjectiveC retain cycle detecor
 
 ##	使用方式
 
-###启用
+
+###	启用
 
 ```
 [QYHRetainCycleDetector enable];
@@ -24,13 +25,13 @@ application:didFinishLaunchingWithOptions:
 ```
 函数中。
 
-###关闭
+###	关闭
 
 ```
 QYHRetainCycleDetector disable];
 ```
 
-##性能
+##	性能
 QYHRetainCycleDetector本质上是一个测试工具，虽然尽可能做了优化，但通过遍历对象引用链仍是耗时操作，不建议在生产环境中使用。
 
 
