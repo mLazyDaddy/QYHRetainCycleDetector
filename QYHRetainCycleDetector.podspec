@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "QYHRetainCycleDetector"
-  spec.version      = "0.1"
+  spec.version      = "0.1.1"
   spec.summary      = "Library that helps with detecting retain cycles in iOS apps"
 
   # This description is used to generate tags and improve search results.
