@@ -1,0 +1,9 @@
+*.xcuserstate
+Pods/
+Podfile.lock
+QYHRetainCycleDetector/QYHRetainCycleDetector.xcworkspace/contents.xcworkspacedata
+QYHRetainCycleDetector/QYHRetainCycleDetector.xcworkspace/xcuserdata/qinyihui.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+*.xcworkspace
+QYHRetainCycleDetector/QYHRetainCycleDetector.xcodeproj/project.xcworkspace/xcuserdata/duanjiahuan.xcuserdatad/UserInterfaceState.xcuserstate
+xcuserdata
+.idea

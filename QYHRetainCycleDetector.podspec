@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "QYHRetainCycleDetector"
-  spec.version      = "0.1.1"
+  spec.version      = "0.1.3"
   spec.summary      = "Library that helps with detecting retain cycles in iOS apps"
 
   # This description is used to generate tags and improve search results.
@@ -89,33 +89,8 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "QYHRetainCycleDetector", "QYHRetainCycleDetector/**/*.{h,m}"
-  
-  mrr_files = [
-  'QYHRetainCycleDetector/Detector/NSObject+QYHRCDObject.h',
-  'QYHRetainCycleDetector/Detector/NSObject+QYHRCDObject.m',
-  'QYHRetainCycleDetector/Detector/QYHNodeEnumerator.h',
-  'QYHRetainCycleDetector/Detector/QYHNodeEnumerator.mm',
-  'QYHRetainCycleDetector/Detector/QYHRetainCycleGragh.h',
-  'QYHRetainCycleDetector/Detector/QYHRetainCycleGragh.mm',
-  'QYHRetainCycleDetector/Layout/Block/QYHBlockStrongRelationDetector.h',
-  'QYHRetainCycleDetector/Layout/Block/QYHBlockStrongRelationDetector.mm',
-  'QYHRetainCycleDetector/Layout/Block/QYHNSBlockLayout.h',
-  'QYHRetainCycleDetector/Layout/Block/QYHNSBlockLayout.mm',
-  'QYHRetainCycleDetector/Layout/Class/QYHIvar.h',
-  'QYHRetainCycleDetector/Layout/Class/QYHIvar.mm',
-  'QYHRetainCycleDetector/Layout/Class/QYHNSObjectLayout.h',
-  'QYHRetainCycleDetector/Layout/Class/QYHNSObjectLayout.mm',
-  'QYHRetainCycleDetector/Wrapper/Block/QYHNSBlock.h',
-  'QYHRetainCycleDetector/Wrapper/Block/QYHNSBlock.mm',
-  'QYHRetainCycleDetector/Wrapper/Class/QYHNSObject.h',
-  'QYHRetainCycleDetector/Wrapper/Class/QYHNSObject.mm'
-  ]
-  
-  files = Pathname.glob("QYHRetainCycleDetector/**/*.{h,m,mm}")
-  files = files.map {|file| file.to_path}
-  files = files.reject {|file| mrr_files.include?(file)}
-  spec.requires_arc = files
+  spec.source_files  = "QYHRetainCycleDetector", "QYHRetainCycleDetector/**/*.{h,m,mm}"
+
   
   spec.public_header_files = [
   'QYHRetainCycleDetector/Detector/QYHRetainCycleDetector.h',
@@ -146,11 +121,6 @@ Pod::Spec.new do |spec|
   #
 
   spec.frameworks  = "Foundation","UIKit","CoreFoundation"
-  # spec.frameworks = "SomeFramework", "AnotherFramework"
-
-  # spec.library   = "iconv"
-  # spec.libraries = "iconv", "xml2"
-
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -158,9 +128,33 @@ Pod::Spec.new do |spec|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # spec.requires_arc = true
-
-  # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # spec.dependency "JSONKit", "~> 1.4"
+  
+  mrr_files = [
+  'QYHRetainCycleDetector/Detector/NSObject+QYHRCDObject.h',
+  'QYHRetainCycleDetector/Detector/NSObject+QYHRCDObject.m',
+  'QYHRetainCycleDetector/Detector/QYHNodeEnumerator.h',
+  'QYHRetainCycleDetector/Detector/QYHNodeEnumerator.mm',
+  'QYHRetainCycleDetector/Detector/QYHRetainCycleFinder.h',
+  'QYHRetainCycleDetector/Detector/QYHRetainCycleFinder.mm',
+  'QYHRetainCycleDetector/Detector/QYHRetainCycleGragh.h',
+  'QYHRetainCycleDetector/Detector/QYHRetainCycleGragh.mm',
+  'QYHRetainCycleDetector/Layout/Block/QYHBlockStrongRelationDetector.h',
+  'QYHRetainCycleDetector/Layout/Block/QYHBlockStrongRelationDetector.mm',
+  'QYHRetainCycleDetector/Layout/Block/QYHNSBlockLayout.h',
+  'QYHRetainCycleDetector/Layout/Block/QYHNSBlockLayout.mm',
+  'QYHRetainCycleDetector/Layout/Class/QYHIvar.h',
+  'QYHRetainCycleDetector/Layout/Class/QYHIvar.mm',
+  'QYHRetainCycleDetector/Layout/Class/QYHNSObjectLayout.h',
+  'QYHRetainCycleDetector/Layout/Class/QYHNSObjectLayout.mm',
+  'QYHRetainCycleDetector/Wrapper/Block/QYHNSBlock.h',
+  'QYHRetainCycleDetector/Wrapper/Block/QYHNSBlock.mm',
+  'QYHRetainCycleDetector/Wrapper/Class/QYHNSObject.h',
+  'QYHRetainCycleDetector/Wrapper/Class/QYHNSObject.mm'
+  ]
+  
+  files = Pathname.glob("QYHRetainCycleDetector/**/*.{h,m,mm}")
+  files = files.map {|file| file.to_path}
+  files = files.reject {|file| mrr_files.include?(file)}
+  spec.requires_arc = files.sort
 
 end

@@ -11,8 +11,26 @@ ObjectiveC retain cycle detecor
 
 ##	使用方式
 
+###	集成
+
+####	CocoaPods
+
+在podfile中添加
+
+```
+pod 'QYHRetainCycleDetector'
+```
+
 
 ###	启用
+
+
+引入头文件
+
+```
+#import <QYHRetainCycleDetector.h>
+```
+后调用
 
 ```
 [QYHRetainCycleDetector enable];
