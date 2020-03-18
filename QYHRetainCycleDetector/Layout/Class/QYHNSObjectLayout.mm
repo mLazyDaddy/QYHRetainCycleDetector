@@ -36,7 +36,7 @@ static QYH_ALWAYS_INLINE unsigned getIvarStartIndex(__unsafe_unretained Class cl
     Ivar* ivars= class_copyIvarList(cls, &count);
     if (count > 0) {
         ptrdiff_t offset = ivar_getOffset(ivars[0]);
-        startIndex = offset / sizeof(void *);
+        startIndex = (unsigned)(offset / sizeof(void *));
     }
     free(ivars);
     return startIndex;
@@ -58,7 +58,7 @@ static CFSetRef geStrongIvarLayoutIndex(NSUInteger startIndex, const uint8_t *la
         unsigned upperNibble = (byte >> 4);
         unsigned lowerNibble = (byte & 0x0F);
         currentIndex += upperNibble;
-        unsigned len = currentIndex + lowerNibble;
+        unsigned len = (unsigned) (currentIndex + lowerNibble);
         for (CFIndex idx = currentIndex;idx < len; idx++) {
             CFSetAddValue(indexSet, (const void *)(uintptr_t)idx);
         }

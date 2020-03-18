@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-extern bool QYHDetectRetainCyclesInObject(id obj);
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QYHRetainCycleFinder : NSObject

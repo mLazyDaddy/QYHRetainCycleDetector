@@ -27,7 +27,7 @@ typedef struct QYHIvar_t{
 /**
  * create QYHIvar.
 */
-QYHIvar _Nonnull QYHIvarCreate(Ivar ivar);
+QYHIvar _Nonnull QYHIvarCreate(Ivar _Nonnull ivar);
 
 /**
  * Reads the value of an instance variable in an object.
@@ -37,20 +37,14 @@ QYHIvar _Nonnull QYHIvarCreate(Ivar ivar);
 *
  * @return An instance variable of the object.
  */
-CFTypeRef QYHIvarGetVariable(id obj, Ivar ivar);
+CFTypeRef _Nonnull QYHIvarGetVariable(id _Nonnull obj, Ivar _Nonnull ivar);
 
-/**
- * @param obj The object containing the ivar.
- * @param qyhIvar The QYHIvar containing the ivar.
- * @return A description for an instance variable of the object
-*/
-char *QYHIvarGetVariableDescription(id obj,QYHIvar qyhIvar);
 
 /**
  * free QYHIvar.
  */
-void QYHIvarFree(QYHIvar qyhIvar);
+void QYHIvarFree(QYHIvar _Nonnull qyhIvar);
 
-void QYHIvarTrueFree(QYHIvar obj);
+void QYHIvarTrueFree(QYHIvar _Nonnull obj);
 
 void QYHIvarClearCache();
